@@ -5,6 +5,8 @@ html, body {
   position: relative;
   top: 0;
   left: 0;
+  font-size: 1.3em;
+  font-family: cursive;
 }
 
 html {
@@ -12,7 +14,7 @@ html {
 }
 
 #page {
-  padding: 2em;
+  padding: 1em;
 }
 
 h1, h2, h3 {
@@ -39,8 +41,8 @@ nav {
 #testSection {
   min-height: 50px;
   min-width: 80px;
-  background: #556;
+  background: #ccd;
   position: relative;
-  color: #fff;
-  text-align: center;
+  color: #222;
+  -text-align: center;
 }

@@ -2,6 +2,7 @@
 // PARAMETRES -------------------------------------------------------
 
 const params = {
+  maxTestSizeScreenPercent: 0.9,
   fixationTime: 500,       // en milisecondes
   maxImageTime: 5000,      // en milisecondes
   imageWidthPercent: 0.8,
@@ -178,13 +179,13 @@ function setupImageWithTarget(possibility) {
 }
 
 function resizeImageAndTarget(image, target) {
-  let testWidth = testSection.offsetWidth
-  image.width = testWidth
-  image.height = testWidth * 1 / params.imageRatio
+  const testDimensions = calculateTestDimensions()
+  image.width = testDimensions[0]
+  image.height = testDimensions[1]
 
   target.style.position = 'absolute'
-  target.width = testWidth * params.targetSizePercent
-  target.height = testWidth * params.targetSizePercent * 1 / params.imageRatio
+  target.width = testDimensions[0] * params.targetSizePercent
+  target.height = testDimensions[1] * params.targetSizePercent
   target.style.top =
     (image.height * target.testPosition.y - target.height / 2)
     + 'px'
@@ -194,12 +195,36 @@ function resizeImageAndTarget(image, target) {
 }
 
 function resizeTestSection () {
+  const testDimensions = calculateTestDimensions()
   testSection.setAttribute(
     'style',
+    //'width: ' +
+    //testDimensions[0] +
+    //'px; ' +
     'height: ' +
-    testSection.offsetWidth * 1 / params.imageRatio +
+    testDimensions[1] +
     'px;'
   )
+}
+
+function calculateTestDimensions () {
+  const fullHeight = Math.max(
+    document.documentElement.clientHeight || 0,
+    window.innerHeight || 0
+  )
+  const maxHeight = fullHeight * params.maxTestSizeScreenPercent
+
+  const fullWidth = testSection.offsetWidth
+  let testWidth = fullWidth
+
+  let testHeight = testWidth * 1 / params.imageRatio
+
+  if (testHeight > maxHeight) {
+    testHeight = maxHeight
+    testWidth = testHeight * params.imageRatio
+  }
+
+  return [testWidth, testHeight, fullWidth, fullHeight]
 }
 
 resizeTestSection();
