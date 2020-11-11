@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TEST</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <section id="page">
+
+      <div id="testSection">
+        Lisez les instruction plus bas :
+      </div>
+
+      <nav id="tools">
+        <button id="testStartButton" onclick="startTest()">Lancer!</button>
+      </nav>
+
+      <h1>Test des cibles</h1>
+
+      <p id="explanations">
+        Cliquez sur le bouton <strong>"lancer"</strong> pour lancer le test,
+        vous verrez une suite d'images avec une cible (forme de couleur)
+        placée aléatoirement dans un des coins de l'image.
+        <br/>
+        Le but est de cliquer le plus rapidement sur la cible.
+        <br/>
+        c'est parti !!
+      </p>
+
+      <nav id="infos">
+        <p>
+          <span>mouse tracker :</span><span id="mouseTracker" class="code">-1|-1</span>
+        </p>
+
+        <hr/>
+
+        <code>
+          <pre id="terminal" class="code"></pre>
+        </code>
+      </nav>
+
+    </section>
+  </body>
+  <script type="text/javascript" src="./code.js"></script>
+</html>

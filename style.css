@@ -1,0 +1,46 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+#page {
+  padding: 2em;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+nav {
+  padding: 1em;
+  border: 1px solid #888;
+  box-shadow: 2px 2px 2px #555;
+}
+
+.code {
+  border: 3px solid #888;
+  background: #556;
+  color: #fff;
+  font-family: monospace;
+  padding: 1%;
+  border-radius: 5px;
+  height: 10em;
+  overflow: auto;
+}
+
+#testSection {
+  min-height: 50px;
+  min-width: 80px;
+  background: #556;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
